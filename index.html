@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mzansi Unite</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <header class="shadow">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="Hannah.png" alt="Mzansi Unite Logo" class="h-10 mr-3 rounded-full">
+                <a href="#" class="text-gray-800 text-lg font-semibold">Home</a>
+            </div>
+            <div>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded">Donate</button>
+            </div>
+        </div>
+    </header> 
+    <main class="container mx-auto px-4 py-12">
+        <section class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to Mzansi Unite</h1>
+          <p class="text-gray-600 text-lg">Join us in making a difference in our community.</p>
+        </section>
+      
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <!-- Card 1 -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h2>
+            <p class="text-gray-600 mb-4">We aim to unite and uplift communities through various initiatives and programs.</p>
+            <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:ring focus:ring-blue-300">
+              Learn More
+            </button>
+          </div>
+      
+          <!-- Card 2 -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Get Involved</h2>
+            <p class="text-gray-600 mb-4">Find out how you can contribute to our cause and make a positive impact.</p>
+            <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:ring focus:ring-green-300">
+              Get Started
+            </button>
+          </div>
+      
+          <!-- Card 3 -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Contact Us</h2>
+            <p class="text-gray-600 mb-4">Reach out to us for more information or to get involved in our initiatives.</p>
+            <button class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 focus:ring focus:ring-red-300">
+              Contact Now
+            </button>
+          </div>
+        </section>
+      </main>      
+
+      <div id="carouselExampleIndicators" class="relative">
+        <!-- Indicators -->
+        <div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 space-x-2">
+          <button type="button" data-slide-to="0" class="h-3 w-3 rounded-full bg-gray-500 active:bg-gray-800" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-slide-to="1" class="h-3 w-3 rounded-full bg-gray-500" aria-label="Slide 2"></button>
+          <button type="button" data-slide-to="2" class="h-3 w-3 rounded-full bg-gray-500" aria-label="Slide 3"></button>
+        </div>
+      
+        <!-- Carousel Items -->
+        <div class="overflow-hidden relative">
+          <div class="flex transition-transform duration-500" id="carouselContent">
+            <!-- Card 1 -->
+            <div class="flex-none w-full px-4">
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="Hannah.png" class="w-full h-64 object-cover" alt="...">
+                <div class="p-4">
+                  <h3 class="text-lg font-semibold">Card Title 1</h3>
+                  <p class="text-gray-600">Some description for this card.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="flex-none w-full px-4">
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="Hannah.png" class="w-full h-64 object-cover" alt="...">
+                <div class="p-4">
+                  <h3 class="text-lg font-semibold">Card Title 2</h3>
+                  <p class="text-gray-600">Some description for this card.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="flex-none w-full px-4">
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="Hannah.png" class="w-full h-64 object-cover" alt="...">
+                <div class="p-4">
+                  <h3 class="text-lg font-semibold">Card Title 3</h3>
+                  <p class="text-gray-600">Some description for this card.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Controls -->
+        <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2" type="button" id="prevButton">
+          <span class="sr-only">Previous</span>
+          &lt;
+        </button>
+        <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2" type="button" id="nextButton">
+          <span class="sr-only">Next</span>
+          &gt;
+        </button>
+      </div>
+      
+      <script>
+        const carousel = document.getElementById('carouselContent');
+        const slides = carousel.children;
+        const totalSlides = slides.length;
+        let currentIndex = 0;
+      
+        document.getElementById('nextButton').addEventListener('click', () => {
+          if (currentIndex < totalSlides - 1) {
+            currentIndex++;
+          } else {
+            currentIndex = 0;
+          }
+          updateCarousel();
+        });
+      
+        document.getElementById('prevButton').addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+          } else {
+            currentIndex = totalSlides - 1;
+          }
+          updateCarousel();
+        });
+      
+        function updateCarousel() {
+          const offset = -currentIndex * 100; // Moves carousel by 100% of its width
+          carousel.style.transform = `translateX(${offset}%)`;
+        }
+      </script>
+      
+          
+          <section class="text-center">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Stay Connected</h2>
+            <p class="text-gray-600 mb-4">Follow us on social media to stay updated with our latest news and events.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-blue-500">Facebook</a>
+                <a href="#" class="text-blue-400">Twitter</a>
+                <a href="#" class="text-pink-500">Instagram</a>
+            </div>
+        </section>
+    <footer class="bg-white shadow mt-12">
+        <div class="container mx-auto px-4 py-6 text-center text-gray-600">
+            &copy; 2023 Mzansi Unite. All rights reserved.
+        </div>
+    </footer>
+      
+
+</body>
+</html>
